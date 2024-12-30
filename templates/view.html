@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Trades</title>
+</head>
+<body>
+    <h1>Trades from Database</h1>
+
+    <h2>Trade Data</h2>
+    {% if trades %}
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Pair</th>
+                <th>_isWin</th>
+                <th>Risk</th>
+                <th>Risk Reward</th>
+                <th>Session</th>
+                <th>Description</th>
+                <th>Tradetype</th>
+                <th>Tags</th>
+
+            </tr>
+            {% for row in trades %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+                <td>{{row [8] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No trades found.</p>
+    {% endif %}
+
+    <br>
+    <a href="/add">Add New Trade</a>
+    <br>
+    <a href="/">Go Back to Home</a>
+</body>
+</html>

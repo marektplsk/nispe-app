@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Trade Entry</title>
+        <script src="{{ url_for('static', filename='js/components/tag-input.js') }}"></script>
+        <script>
+            function updateSelectedTags() {
+                var select = document.getElementById('tags');
+                var selectedTags = [];
+                for (var i = 0; i < select.selectedOptions.length; i++) {
+                    selectedTags.push(select.selectedOptions[i].value);
+                }
+                document.getElementById('selectedTags').value = selectedTags.join(', ');
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1> Add trade to the db</h1>
+
+        <form action="/add" method="post">
+            <label for="name">Trade Name:</label>
+            <input type="text" id="name", name="name" required> <br>
+
+            <label for="pair">Pair</label>
+            <select name="pair" id="pair" required>
+                <option value="xauusud">xauusud</option>
+                <option value="nq">nq</option>
+                <option value="es">es</option>
+            </select> <br>
+
+            <label for="_isWin">Win / Loss</label>
+            <select name="_isWin" id="_isWin">
+                <option value="Win">Win</option>
+                <option value="Loss">Loss</option>
+            </select><br>
+
+            <label for="risk">Risk</label>
+            <input type="number" id="risk" name="risk" required> <br>
+    
+            <label for="risk_reward">Risk/Reward</label>
+            <input type="number" id="risk_reward" name="risk_reward" required> <br>
+
+            <label for="trading_session">Session</label>
+            <select name="trading_session" id="trading_session" required>
+                <option value="London">London</option>
+                <option value="New York">New York</option>
+                <option value="Tokyo">Tokyo</option>
+            </select><br>
+
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="4" cols="50" required></textarea> <br>
+
+            <label for="_tradeType">Short/ Long</label>
+            <select name="_tradeType" id="_tradeType" required>
+                <option value="short">Short</option>
+                <option value="long">Long</option>
+            </select> <br>
+
+            <label for="tags">Select all tags related to this trade</label>
+            <select name="tags" id="tags" multiple size="5" onchange="updateSelectedTags()">
+                <optgroup label="Trading Tags">
+                    <option value="orderBlock">Ob</option>
+                    <option value="fairValueGap">FVG</option>
+                    <option value="breakEven">BE</option>
+                </optgroup>
+
+                <optgroup label="Emotions Tags">
+                    <option value="fear">Fear</option>
+                    <option value="greed">Greed</option>
+                    <option value="anger">Anger</option>
+                </optgroup>
+            </select>
+
+            <div>
+                <label for="selectedTags">Selected Tags:</label>
+                <input type="text" id="selectedTags" name="selectedTags" readonly> 
+            </div>
+            
+            <input type="submit" value="Add a Trade">
+        </form>
+
+        <br>
+
+        <a href="/">Go back to home</a>
+    </body>
+</html>

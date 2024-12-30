@@ -1,0 +1,60 @@
+ * Tip: There are .env files present. Install python-dotenv to use them.
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+On macOS, try disabling the 'AirPlay Receiver' servic127.0.0.1 - - [26/Dec/2024 17:53:12] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 17:53:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 17:53:13] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:03:51] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:03:56] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:03:57] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:03:58] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:03:59] "GET /add HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:04:12] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:05:05] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:05:06] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:05:06] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:05:06] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:05:06] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:05:07] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:05:26] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:06:34] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:43:13] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:43:14] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:43:18] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:44:22] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:44:22] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:44:59] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:45:01] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:45:01] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:45:07] "GET /add HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:45:07] "GET /add HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:45:09] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:45:10] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:45:39] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:48:03] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:48:06] "[32mPOST /add HTTP/1.1[0m" 302 -
+127.0.0.1 - - [26/Dec/2024 18:48:06] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:48:09] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:50:18] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:50:20] "GET /view HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:50:30] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:50:33] "[33mGET /kokto HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:50:44] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:51:14] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 18:51:16] "GET /add HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 18:51:17] "GET /add HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 19:08:12] "[33mGET /test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 19:08:36] "[33mGET /test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 19:08:37] "[33mGET /test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 19:08:57] "[33mGET /test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 19:33:24] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 19:33:25] "[33mGET /ask HTTP/1.1[0m" 404 -
+127.0.0.1 - - [26/Dec/2024 19:33:28] "GET /add HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 19:33:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 19:33:31] "GET /add HTTP/1.1" 200 -
+127.0.0.1 - - [26/Dec/2024 19:33:33] "[32mPOST /add HTTP/1.1[0m" 302 -
+127.0.0.1 - - [26/Dec/2024 19:33:33] "GET /view HTTP/1.1" 200 -
+/opt/homebrew/Cellar/python@3.13/3.13.1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/multiprocessing/resource_tracker.py:276: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-k2hnqisa'}
+  warnings.warn(

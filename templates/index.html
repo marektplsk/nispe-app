@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Databases on MySQL Server</h1>
+    <ul>
+        {% for db in databases %}
+            <li>{{ db[0] }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/add">Add Data</a> | <a href="/view">View Data</a> | <a href="/ask">Ask</a>
+</body>
+</html>
