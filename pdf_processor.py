@@ -45,3 +45,6 @@ def process_pdfs_from_folder(file_paths, user_question):
         all_context += "\n".join([doc.page_content for doc in retrieved_docs]) + "\n"
     
     return all_context
+
+
+
