@@ -2,15 +2,175 @@
 <html>
 <head>
     <title>Home Page</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+        button:focus-visible {
+            outline: 2px solid #4a90e2 !important;
+            outline: -webkit-focus-ring-color auto 5px !important;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Small Navbar */
+        .navbar-cont-s {
+            position: relative;
+            width: 100%;
+            height: 32px;
+            background-color: #ffffff;
+            padding: 8px 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-cont-s .frame {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar-cont-s .text-wrapper {
+            font-family: "Lato-Regular", Helvetica;
+            font-weight: 400;
+            color: #262626;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .navbar-cont-s .navbar-logos {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        /* Large Navbar */
+        .navbar-cont-XL {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            background-color: #1b1b1b;
+            padding: 20px 96px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-cont-XL .logo-x {
+            display: flex;
+            align-items: center;
+            font-size: 38px;
+            font-family: "AvantGarde Bk BT-DemiOblique", Helvetica;
+            color: #ffffff;
+        }
+
+        .navbar-cont-XL .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-cont-XL .menu-item {
+            font-family: "Lato-Bold", Helvetica;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .navbar-cont-XL .navbar-btn {
+            display: flex;
+            align-items: center;
+            background-color: #4a90e2;
+            padding: 8px 20px;
+            border-radius: 4px;
+        }
+
+        .navbar-cont-XL .text-wrapper-3 {
+            font-family: "Lato-Regular", Helvetica;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .navbar-cont-XL .navbar-icons {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Added margin for larger navbar logos and icons */
+        .navbar-cont-XL .frame {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .content {
+            padding: 20px 96px;
+        }
+
+        /* Adjusting the spacing for the small navbar logo and text */
+        .navbar-cont-s .navbar-logos {
+            display: flex;
+            align-items: center;
+            gap: 24px; /* Increased spacing between logo and text-wrapper */
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Databases on MySQL Server</h1>
-    <ul>
-        {% for db in databases %}
-            <li>{{ db[0] }}</li>
-        {% endfor %}
-    </ul>
+    <!-- Small Navbar -->
+    <div class="navbar-cont-s">
+        <div class="frame">
+            <div class="text-wrapper">WSJ</div>
+            <div class="text-wrapper">Market Watch</div>
+            <div class="text-wrapper">Barron’s</div>
+        </div>
+        <div class="navbar-logos">
+            <img class="vector" src="{{ url_for('static', filename='images/navbar-logo-s.svg') }}" alt="Logo" />
+            <div class="text-wrapper">Rastislav Krahenbihl</div>
+        </div>
+    </div>
 
-    <a href="/add">Add Data</a> | <a href="/view">View Data</a> | <a href="/ask">Ask</a>
+    <!-- Large Navbar -->
+    <div class="navbar-cont-XL">
+        <img class="vector" src="{{ url_for('static', filename='images/navbar-logo-xl.svg') }}" alt="Logo" />
+        <div class="menu">
+            <div class="menu-item">Ask Mistral 7b-ft</div>
+            <div class="menu-item">Charts</div>
+            <div class="menu-item">Personal Finance</div>
+            <div class="menu-item">Database</div>
+        </div>
+        <!-- Add Trade button -->
+        <div class="navbar-btn">
+            <div class="text-wrapper-3">ADD TRADE</div>
+        </div>
+        <!-- Icons -->
+        <div class="frame">
+            <img class="vector" src="{{ url_for('static', filename='images/Navbar {icons}.svg') }}" alt="Logo" />
+            <img class="vector" src="{{ url_for('static', filename='images/Navbar {icons}-1.svg') }}" alt="Logo" />
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Databases on MySQL</h1>
+        <ul>
+            {% for db in databases %}
+                <li>{{ db[0] }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/view">View Data</a>
+    </div>
 </body>
 </html>

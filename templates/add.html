@@ -1,87 +1,119 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Add Trade Entry</title>
-        <script src="{{ url_for('static', filename='js/components/tag-input.js') }}"></script>
-        <script>
-            function updateSelectedTags() {
-                var select = document.getElementById('tags');
-                var selectedTags = [];
-                for (var i = 0; i < select.selectedOptions.length; i++) {
-                    selectedTags.push(select.selectedOptions[i].value);
-                }
-                document.getElementById('selectedTags').value = selectedTags.join(', ');
+<head>
+    <title>Add Trade Entry</title>
+    <script src="{{ url_for('static', filename='js/components/tag-input.js') }}"></script>
+    <script>
+        function updateSelectedTags() {
+            var select = document.getElementById('tags');
+            var selectedTags = [];
+            for (var i = 0; i < select.selectedOptions.length; i++) {
+                selectedTags.push(select.selectedOptions[i].value);
             }
-        </script>
-    </head>
+            document.getElementById('selectedTags').value = selectedTags.join(', ');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Add Trade to the Database</h1>
 
-    <body>
-        <h1> Add trade to the db</h1>
+    <form action="/add" method="post" class="bg-white p-6 shadow-md rounded-md w-full max-w-4xl">
+        <table class="table-auto w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 px-4 py-2 text-left">Field</th>
+                    <th class="border border-gray-300 px-4 py-2">Input</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Trade Name:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="text" id="name" name="name" required class="w-full px-2 py-1 border rounded-md">
+                    </td>
+                </tr>
+                <tr class="bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2">Pair:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select name="pair" id="pair" required class="w-full px-2 py-1 border rounded-md">
+                            <option value="xauusud">XAU/USD</option>
+                            <option value="nq">NQ</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Win / Loss:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select name="_isWin" id="_isWin" class="w-full px-2 py-1 border rounded-md">
+                            <option value="Win">Win</option>
+                            <option value="Loss">Loss</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2">Risk:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" id="risk" name="risk" required class="w-full px-2 py-1 border rounded-md">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Risk/Reward:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <input type="number" id="risk_reward" name="risk_reward" required class="w-full px-2 py-1 border rounded-md">
+                    </td>
+                </tr>
+                <tr class="bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2">Session:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select name="trading_session" id="trading_session" required class="w-full px-2 py-1 border rounded-md">
+                            <option value="London">London</option>
+                            <option value="New York">New York</option>
+                            <option value="Tokyo">Tokyo</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Description:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <textarea name="description" id="description" rows="4" required class="w-full px-2 py-1 border rounded-md"></textarea>
+                    </td>
+                </tr>
+                <tr class="bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2">Short/Long:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select name="_tradeType" id="_tradeType" required class="w-full px-2 py-1 border rounded-md">
+                            <option value="short">Short</option>
+                            <option value="long">Long</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Tags:</td>
+                    <td class="border border-gray-300 px-4 py-2">
+                        <select name="tags" id="tags" multiple size="5" onchange="updateSelectedTags()" class="w-full px-2 py-1 border rounded-md">
+                            <optgroup label="Trading Tags">
+                                <option value="orderBlock">Ob</option>
+                                <option value="fairValueGap">FVG</option>
+                                <option value="breakEven">BE</option>
+                            </optgroup>
+                            <optgroup label="Emotions Tags">
+                                <option value="fear">Fear</option>
+                                <option value="greed">Greed</option>
+                                <option value="anger">Anger</option>
+                            </optgroup>
+                        </select>
+                        <input type="text" id="selectedTags" name="selectedTags" readonly class="mt-2 w-full px-2 py-1 border rounded-md">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-        <form action="/add" method="post">
-            <label for="name">Trade Name:</label>
-            <input type="text" id="name", name="name" required> <br>
-
-            <label for="pair">Pair</label>
-            <select name="pair" id="pair" required>
-                <option value="xauusud">xauusud</option>
-                <option value="nq">nq</option>
-                <option value="es">es</option>
-            </select> <br>
-
-            <label for="_isWin">Win / Loss</label>
-            <select name="_isWin" id="_isWin">
-                <option value="Win">Win</option>
-                <option value="Loss">Loss</option>
-            </select><br>
-
-            <label for="risk">Risk</label>
-            <input type="number" id="risk" name="risk" required> <br>
-    
-            <label for="risk_reward">Risk/Reward</label>
-            <input type="number" id="risk_reward" name="risk_reward" required> <br>
-
-            <label for="trading_session">Session</label>
-            <select name="trading_session" id="trading_session" required>
-                <option value="London">London</option>
-                <option value="New York">New York</option>
-                <option value="Tokyo">Tokyo</option>
-            </select><br>
-
-            <label for="description">Description</label>
-            <textarea name="description" id="description" rows="4" cols="50" required></textarea> <br>
-
-            <label for="_tradeType">Short/ Long</label>
-            <select name="_tradeType" id="_tradeType" required>
-                <option value="short">Short</option>
-                <option value="long">Long</option>
-            </select> <br>
-
-            <label for="tags">Select all tags related to this trade</label>
-            <select name="tags" id="tags" multiple size="5" onchange="updateSelectedTags()">
-                <optgroup label="Trading Tags">
-                    <option value="orderBlock">Ob</option>
-                    <option value="fairValueGap">FVG</option>
-                    <option value="breakEven">BE</option>
-                </optgroup>
-
-                <optgroup label="Emotions Tags">
-                    <option value="fear">Fear</option>
-                    <option value="greed">Greed</option>
-                    <option value="anger">Anger</option>
-                </optgroup>
-            </select>
-
-            <div>
-                <label for="selectedTags">Selected Tags:</label>
-                <input type="text" id="selectedTags" name="selectedTags" readonly> 
-            </div>
-            
-            <input type="submit" value="Add a Trade">
-        </form>
-
-        <br>
-
-        <a href="/">Go back to home</a>
-    </body>
+        <div class="flex justify-between items-center mt-6">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Add a Trade</button>
+            <a href="/" class="text-blue-500 hover:underline">Go back to home</a>
+        </div>
+    </form>
+</body>
 </html>

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ask Mistral</title>
+    <title>Ask DeepSeek</title>
 </head>
 <body>
-    <h1>Ask Mistral 7B Model</h1>
-    <form method="POST" enctype="multipart/form-data">
+    <h1>Ask DeepSeek Model</h1>
+    <form method="POST">
         <label for="question">Your Question:</label>
         <input type="text" id="question" name="question" required>
-        <label for="pdf">Upload a PDF (optional):</label>
-        <input type="file" id="pdf" name="pdf" accept="application/pdf">
         <br>
         <button type="submit">Ask</button>
     </form>
@@ -18,7 +16,10 @@
     <h2>Your Question:</h2>
     <p>{{ question }}</p>
 
-    <h2>Response from Mistral:</h2>
+    <h2>Thinking Process:</h2>
+    <pre>{{ thinking_process }}</pre>
+
+    <h2>Response from DeepSeek:</h2>
     <p>{{ response }}</p>
     {% endif %}
 </body>
